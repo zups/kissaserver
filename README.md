@@ -1,10 +1,10 @@
-#building
+# building
 mkdir build & cd build
 cmake ..
 cmake --build .
 
 :3
-#Running
+# Running
 IP_ADDR_REMOTE=xxx.xxx.xxx.xxx ./client
 
 :3
