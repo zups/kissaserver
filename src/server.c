@@ -16,7 +16,6 @@ void *reader(void *arg);
 void *acceptor(void *arg);
 
 void *acceptor(void *arg) {
-    int client_id = 0;
     pthread_t reader_thread;
     while (1) {
         socklen_t addrlen = sizeof(address);
@@ -31,7 +30,6 @@ void *acceptor(void *arg) {
             perror("pthread_create failed");
             exit(1);
         }
-        client_id++;
     }
 }
 
@@ -43,7 +41,7 @@ void* reader(void* arg) {
     // Read data from client
     read(client_fd, &s1, sizeof(struct cat));
     while (s1.dog != 0) {
-        printf("Client says: %d, %d\n", s1.dog, s1.meow);
+        printf("Client(%d) says: %d, %d\n", client_fd, s1.dog, s1.meow);
         int bytes_read = read(client_fd, &s1, sizeof(struct cat));
         if (bytes_read <= 0) {
             break;
