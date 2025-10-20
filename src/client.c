@@ -36,7 +36,11 @@ int main() {
     serv_addr.sin_port = htons(PORT);
 
     // Convert IPv4 address from text to binary
-    if (inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr) <= 0) {
+    char* ip_addr_remote = getenv("IP_ADDR_REMOTE");
+    if (!ip_addr_remote) {
+        ip_addr_remote = "127.0.0.1";
+    }
+    if (inet_pton(AF_INET, ip_addr_remote, &serv_addr.sin_addr) <= 0) {
         perror("invalid address / address not supported");
         close(sock);
         exit(EXIT_FAILURE);
