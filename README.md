@@ -1,12 +1,12 @@
 # building
-mkdir build & cd build
-cmake ..
-cmake --build .
-
-:3
+mkdir build & cd build </br>
+cmake .. </br>
+cmake --build . </br>
+</br>
+:3</br>
 # Running
-IP_ADDR_REMOTE=xxx.xxx.xxx.xxx ./client
-and for server, simply: ./server
-:3
+IP_ADDR_REMOTE=xxx.xxx.xxx.xxx ./client </br>
+and for server, simply: ./server </br>
+:3</br>
 
 <img src="./gifs/miauw.gif"/>
